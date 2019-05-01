@@ -7,11 +7,11 @@ const arrayOfDogs = [
     'happy',
     'gilmore'
 ];
-    function Dogs (props) {
+    function Dogs ({match, history}) {
 
         const dogLinks = arrayOfDogs.map(dogName => (
             <li>
-                <Link to={`${props.match.path}/${dogName}`}>{dogName}</Link>
+                <Link to={`${match.path}/${dogName}`}>{dogName}</Link>
             </li>
         ));
         return(
@@ -20,6 +20,11 @@ const arrayOfDogs = [
                 <ul>
                     {dogLinks}
                 </ul>
+                <button onClick={() => {
+                    // history.push() lets us programmatically go to another route.
+                    // can use this instead of a <Link>component if you need to trigger some other custom code, like setState()
+                    history.push('/');
+                }}>Go Home</button>
             </div>
         )
     }
