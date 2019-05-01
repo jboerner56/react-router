@@ -4,7 +4,7 @@ import Home from './Home';
 import About from './About';
 import Dogs from './Dogs';
 import PageNotFound from './PageNotFound';
-
+import Header from './Header';
 import {
   Link,
   Route,
@@ -32,13 +32,7 @@ class App extends React.Component{
         {/* <h1>{this.state.counter}</h1>
         <button onClick={this._incrementCountArrowFun}>+</button>
         link it used instead of an anchor tag */}
-        <Link to="/">Home</Link>
-        {/* <Home/> */}
-        {/* <About/> */}
-        <Link to="About">About</Link>
-        {/* <Dogs/> */}
-        <Link to="Dogs">Dogs</Link>
-        <Link to="/toknowhere">Doesnt go anywhere</Link>
+          <Header/>
         <Switch>
           {/* switch shows the forst matching route
           or the last route listed
@@ -47,8 +41,14 @@ class App extends React.Component{
           <Route path="/about" component={About}/>
           <Route component={PageNotFound}/>
           <Route path="/dogs" component={Dogs}/>
-
         </Switch>
+        <Link to="/">Home</Link>
+        {/* <Home/> */}
+        {/* <About/> */}
+        <Link to="About">About</Link>
+        {/* <Dogs/> */}
+        <Link to="Dogs">Dogs</Link>
+        <Link to="/toknowhere">Doesnt go anywhere</Link>
       </div>
     );
   }
