@@ -5,6 +5,7 @@ import About from './About';
 import Dogs from './Dogs';
 import PageNotFound from './PageNotFound';
 import Header from './Header';
+import Dog from './Dog';
 import {
   Link,
   Route,
@@ -39,9 +40,10 @@ class App extends React.Component{
            */}
           <Route exact path="/" component={Home}/>
           <Route path="/about" component={About}/>
-          <Route component={PageNotFound}/>
           <Route path="/dogs" component={Dogs}/>
+          <Route component={PageNotFound}/>
         </Switch>
+        <Route path="/dogs/:dog" component={Dog}/>
         <Link to="/">Home</Link>
         {/* <Home/> */}
         {/* <About/> */}
