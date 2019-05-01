@@ -1,15 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const arrayOfDogs = [
-    'oakley',
-    'rocky',
-    'happy',
-    'gilmore'
-];
-    function Dogs ({match, history}) {
+// const dogs = [
+//     'oakley',
+//     'rocky',
+//     'happy',
+//     'gilmore'
+// ];
+    function Dogs ({dogs, match, history}) {
 
-        const dogLinks = arrayOfDogs.map(dogName => (
+        const dogLinks = dogs.map(dogName => (
             <li>
                 <Link to={`${match.path}/${dogName}`}>{dogName}</Link>
             </li>

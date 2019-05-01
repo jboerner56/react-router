@@ -17,7 +17,12 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0
+      dogs: [
+        'oakley',
+        'rocky',
+        'happy',
+        'gilmore'
+      ]
     };
     // I definitely have access to the instance here
     // use .bind to "lock in" the value of 'this'
@@ -40,7 +45,15 @@ class App extends React.Component{
            */}
           <Route exact path="/" component={Home}/>
           <Route path="/about" component={About}/>
-          <Route path="/dogs" component={Dogs}/>
+          {/* <Route path="/dogs" component={Dogs}/> */}
+          {/* to pass custom props (in addition to location, match, and history) to a "react Component", need a technique called "render props" */}
+          <Route path="/dogs" 
+            render={(props) => (
+              <Dogs {...props}
+              dogs={this.state.dogs}
+              />
+            )}
+          />
           <Route component={PageNotFound}/>
         </Switch>
         <Route path="/dogs/:dog" component={Dog}/>
