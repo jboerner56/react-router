@@ -9,10 +9,20 @@ import Dog from './Dog';
 import {
   Link,
   Route,
-  Switch
+  Switch,
+  withRouter
 } from 'react-router-dom';
-// what is bind?
-// 
+
+function AboutButton ({history}) {
+  return(
+    <button onClick={() => {
+      history.push('/about');
+    }}>Go to about page</button>
+  );
+}
+
+const SuperAboutButton = withRouter(AboutButton);
+
 class App extends React.Component{
   constructor(props) {
     super(props);
@@ -39,6 +49,7 @@ class App extends React.Component{
         <button onClick={this._incrementCountArrowFun}>+</button>
         link it used instead of an anchor tag */}
           <Header/>
+          <SuperAboutButton />
         <Switch>
           {/* switch shows the forst matching route
           or the last route listed
@@ -55,6 +66,7 @@ class App extends React.Component{
             )}
           />
           <Route component={PageNotFound}/>
+
         </Switch>
         <Route path="/dogs/:dog" component={Dog}/>
         <Link to="/">Home</Link>
@@ -80,6 +92,8 @@ class App extends React.Component{
 //       counter: this.state.counter + 1
 //     });
 //   }
+
+
 }
 
 export default App;
