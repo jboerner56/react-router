@@ -11,7 +11,7 @@ const arrayOfDogs = [
 
         const dogLinks = arrayOfDogs.map(dogName => (
             <li>
-                <Link to={`/dogs/${dogName}`}>{dogName}</Link>
+                <Link to={`${props.match.path}/${dogName}`}>{dogName}</Link>
             </li>
         ));
         return(
