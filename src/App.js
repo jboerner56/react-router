@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './Home';
+import About from './About';
+import Dogs from './Dogs';
+
+import {
+  Link,
+  Route
+} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* link it used instead of an anchor tag */}
+      <Link to="/">Home</Link>
+      {/* <Home/> */}
+      <Route exact path="/" component={Home}/>
+      {/* <About/> */}
+      <Link to="About">About</Link>
+      <Route path="/about" component={About}/>
+      {/* <Dogs/> */}
+      <Link to="Dogs">Dogs</Link>
+      <Route path="/dogs" component={Dogs}/>
     </div>
   );
 }
