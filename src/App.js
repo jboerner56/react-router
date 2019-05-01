@@ -3,10 +3,12 @@ import './App.css';
 import Home from './Home';
 import About from './About';
 import Dogs from './Dogs';
+import PageNotFound from './PageNotFound';
 
 import {
   Link,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 // what is bind?
 // 
@@ -32,13 +34,21 @@ class App extends React.Component{
         link it used instead of an anchor tag */}
         <Link to="/">Home</Link>
         {/* <Home/> */}
-        <Route exact path="/" component={Home}/>
         {/* <About/> */}
         <Link to="About">About</Link>
-        <Route path="/about" component={About}/>
         {/* <Dogs/> */}
         <Link to="Dogs">Dogs</Link>
-        <Route path="/dogs" component={Dogs}/>
+        <Link to="/toknowhere">Doesnt go anywhere</Link>
+        <Switch>
+          {/* switch shows the forst matching route
+          or the last route listed
+           */}
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route component={PageNotFound}/>
+          <Route path="/dogs" component={Dogs}/>
+
+        </Switch>
       </div>
     );
   }
